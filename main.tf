@@ -62,15 +62,15 @@ module "blog-alb" {
             status_code  = 200
             message_body = "This is a fixed response"
           }]
+
+          comditions = [{
+            http_header = {
+              http_header_name = "FIXED_RESPONSE"
+              values           = ["yes"]
+            }
+          }]
         }
       }
-      
-    }
-    default_action {
-      type         = "fixed-response"
-      content_type = "text/plain"
-      status_code  = 200
-      message_body = "This is a fixed default response"
     }
   }
 
