@@ -50,21 +50,21 @@ module "blog-alb" {
  
   listeners = { 
     ex-http = {
-        port     = 80
-        protocol = "HTTP"
-        target_groups_index = 2
+      port     = 80
+      protocol = "HTTP"
+      target_groups_index = 2
     
-        rules = {
-          ex-fixed-response = {
-            priority = 1
-            actions = [{
-              type         = "fixed-response"
-              content_type = "text/plain"
-              status_code  = 200
-              message_body = "This is a fixed response"
-            }]
-          }
+      rules = {
+        ex-fixed-response = {
+          priority = 1
+          actions = [{
+            type         = "fixed-response"
+            content_type = "text/plain"
+            status_code  = 200
+            message_body = "This is a fixed response"
+          }]
         }
+      }
     }
   }
 
