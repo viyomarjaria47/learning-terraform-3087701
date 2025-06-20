@@ -72,6 +72,13 @@ module "blog-alb" {
         }
       }
     }
+
+    default_action = {
+      type         = "fixed-response"
+      content_type = "text/plain"
+      status_code  = 200
+      message_body = "This is a default response"
+    }
   }
 
   target_groups = [{
