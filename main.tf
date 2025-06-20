@@ -34,7 +34,7 @@ resource "aws_instance" "blog" {
   instance_type          = var.instance_type
   subnet_id              = module.blog_vpc.public_subnets[0]
   vpc_security_group_ids = [module.blog_sg.security_group_id]
-
+  
   tags = {
     Name = "Learning Terraform"
   }
@@ -60,8 +60,7 @@ module "blog_alb" {
       name_prefix      = "blog-"
       protocol         = "HTTP"
       port             = 80
-      target_type      = "instance"
-      target_id        = aws_instance.blog.instance_id
+      target_type      = "instance" 
   }
 
   tags = {
