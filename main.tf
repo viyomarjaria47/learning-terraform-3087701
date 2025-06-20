@@ -54,7 +54,7 @@ module "blog-alb" {
         protocol = "HTTP"
         target_groups_index = 0
     
-        default_action {
+        default_action = {
           type = "fixed-response"
 
           fixed_response {
