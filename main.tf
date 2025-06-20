@@ -45,13 +45,15 @@ module "blog_alb" {
 
   name    = "blog_alb"
   vpc_id  = module.blog_vpc.vpc_id
-  subnets = module.blog_vpc.public_subnets[0]
+  subnets = module.blog_vpc.public_subnets
   security_groups = [module.blog_sg.security_group_id]
  
-  http_tcp_listeners = {
-      port     = 80
-      protocol = "HTTP"
-      target_groups_index = 0
+  listeners{ 
+    ex-http = {
+        port     = 80
+        protocol = "HTTP"
+        target_groups_index = 0
+   }
   }
 
   target_groups = {
@@ -63,7 +65,7 @@ module "blog_alb" {
   }
 
   tags = {
-    Environment = "Development"
+    Environment = "dev"
   }
 }
 
