@@ -52,7 +52,6 @@ module "blog-alb" {
     ex-http = {
       port     = 80
       protocol = "HTTP"
-      target_groups_index = 2
     
       rules = {
         ex-fixed-response = {
@@ -62,6 +61,12 @@ module "blog-alb" {
             content_type = "text/plain"
             status_code  = 200
             message_body = "This is a fixed response"
+          }
+          default_action {
+            type        = "fixed-response"
+            content_type = "text/plain"
+            status_code  = 200
+            message_body = "This is a fixed default response"
           }]
         }
       }
