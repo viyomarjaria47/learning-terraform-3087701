@@ -64,7 +64,7 @@ module "blog-alb" {
           }]
         }
       }
-      default_action {
+      default_action = {
         type         = "fixed-response"
         content_type = "text/plain"
         status_code  = 200
