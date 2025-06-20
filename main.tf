@@ -52,7 +52,7 @@ module "blog-alb" {
     ex-http = {
         port     = 80
         protocol = "HTTP"
-        target_groups_index = 0
+        target_groups_index = 2
     
         rules = {
           ex-fixed-response = {
