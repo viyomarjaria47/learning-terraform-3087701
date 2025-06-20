@@ -48,13 +48,13 @@ module "blog_alb" {
   subnets = module.blog_vpc.public_subnets
   security_groups = [module.blog_sg.security_group_id]
  
-  listeners{ 
+  listeners= [ 
     ex-http = {
         port     = 80
         protocol = "HTTP"
         target_groups_index = 0
    }
-  }
+  ]
 
   target_groups = {
       name_prefix      = "blog-"
