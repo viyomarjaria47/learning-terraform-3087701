@@ -61,7 +61,7 @@ module "blog_alb" {
       protocol         = "HTTP"
       port             = 80
       target_type      = "instance"
-      target_id        = aws_instance.instance_id
+      target_id        = aws_instance.blog.instance_id
   }
 
   tags = {
