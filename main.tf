@@ -54,13 +54,15 @@ module "blog-alb" {
         protocol = "HTTP"
         target_groups_index = 0
     
-        default_action = {
-          type = "fixed-response"
-
-          fixed_response = {
-            content_type = "text/plain"
-            message_body = "Fixed response content"
-            status_code  = "200"
+        rules = {
+          ex-fixed-response = {
+            priority = 1
+            actions = [{
+              type         = "fixed-response"
+              content_type = "text/plain"
+              status_code  = 200
+              message_body = "This is a fixed response"
+            }]
           }
         }
     }
