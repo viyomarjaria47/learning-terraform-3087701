@@ -62,12 +62,13 @@ module "blog-alb" {
             status_code  = 200
             message_body = "This is a fixed response"
           }
+          ]
           default_action {
-            type        = "fixed-response"
+            type         = "fixed-response"
             content_type = "text/plain"
             status_code  = 200
             message_body = "This is a fixed default response"
-          }]
+          }
         }
       }
     }
